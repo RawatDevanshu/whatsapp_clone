@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/CustomUI/CustomCard.dart';
-import 'package:whatsapp_clone/Model/chat_model.dart';
+import 'package:whatsapp_clone/Model/models.dart';
+import 'package:whatsapp_clone/Pages/NewChatPage.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -22,8 +23,12 @@ class ChatPage extends StatelessWidget {
           currentMessage: "currentMessage"),
     ];
     return Scaffold(
-      floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.chat)),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => NewChatPage()));
+          },
+          child: Icon(Icons.chat)),
       body: ListView.builder(
         itemCount: chats.length,
         itemBuilder: (context, index) => CustomCard(chatModel: chats[index]),

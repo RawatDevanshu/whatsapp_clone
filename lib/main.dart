@@ -1,7 +1,11 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/Screens/CameraScreen.dart';
 import 'package:whatsapp_clone/Screens/Homescreen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
@@ -13,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: "OpenSans",
+        splashColor: Colors.transparent,
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(primary: Color(0xFF075E54), secondary: Color(0xFF128C7E)),
       ),
